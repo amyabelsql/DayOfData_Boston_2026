@@ -1,0 +1,44 @@
+name: Index change request
+description: Request an index change or review
+title: "[Index] "
+labels:
+  - index
+  - needs-dba-review
+body:
+  - type: textarea
+    id: query
+    attributes:
+      label: Query or workload
+      description: Describe the query the index should support.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Include the current plan, runtime, reads, and row counts.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed index
+      description: List key columns, included columns, and indexes that may overlap.
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Expected risk
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback plan
+    validations:
+      required: true

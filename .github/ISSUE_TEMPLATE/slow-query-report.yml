@@ -1,0 +1,44 @@
+name: Slow query report
+description: Report a query that needs performance review
+title: "[Slow query] "
+labels:
+  - performance
+  - needs-dba-review
+body:
+  - type: textarea
+    id: query
+    attributes:
+      label: Query or query identifier
+      description: Remove private data and secrets before sharing.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: User or workload impact
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Runtime and execution plan evidence
+      description: Add duration, reads, row counts, and a plan with sensitive values removed.
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Dev
+        - Test
+        - Prod
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Other details
+      description: Include when the issue began and how often it occurs.
+    validations:
+      required: false

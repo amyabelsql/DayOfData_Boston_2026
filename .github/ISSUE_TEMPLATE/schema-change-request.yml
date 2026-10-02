@@ -1,0 +1,33 @@
+name: Schema change request
+description: Request a database schema change
+title: "[Schema change] "
+labels:
+  - schema-change
+  - needs-dba-review
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: Requested change
+      description: Describe the tables, columns, or constraints to change.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason and expected benefit
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Application and data impact
+      description: Include affected applications, data movement, and downtime needs.
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback plan
+    validations:
+      required: true
